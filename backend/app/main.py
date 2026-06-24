@@ -8,7 +8,6 @@ from app.models import patient, session
 # Routes
 from app.routes.patient import router as patient_router
 from app.routes.speech import router as speech_router
-# from app.routes.image import router as image_router
 
 # -----------------------------------
 # APP
@@ -32,7 +31,10 @@ app.add_middleware(
 # -----------------------------------
 # CREATE TABLES
 # -----------------------------------
-Base.metadata.create_all(bind=engine)
+# Base.metadata.create_all(bind=engine)
+@app.on_event("startup")
+def startup():
+    Base.metadata.create_all(bind=engine)
 
 
 def ensure_database_schema():
@@ -71,7 +73,10 @@ ensure_database_schema()
 # -----------------------------------
 app.include_router(patient_router)
 app.include_router(speech_router)
+<<<<<<< HEAD
 # app.include_router(image_router)
+=======
+>>>>>>> dd04105877102bd7ee5d7fce179fdfbe4e4e0f43
 
 # -----------------------------------
 # ROOT

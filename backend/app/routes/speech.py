@@ -756,23 +756,13 @@ async def preview_phonemes(
     }
     
 @router.post("/phonemes")
-async def get_phonemes(
-    word: str = Form(...)
-):
-
+async def get_phonemes(word: str = Form(...)):
     return {
         "success": True,
         "data": {
             "word": word,
             "phonemes": get_basic_phonemes(word)
         }
-    }
-
-    phonemes = get_basic_phonemes(word)
-
-    return {
-        "word": word,
-        "phonemes": phonemes
     }
 
 @router.post("/compare")

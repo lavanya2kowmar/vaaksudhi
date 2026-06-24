@@ -1,0 +1,7 @@
+.env
+__pycache__/
+uploads/
+*.wav
+*.mp3
+*.mpeg
+*.m4a
